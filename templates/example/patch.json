@@ -1,0 +1,12 @@
+{
+  "files": {
+    "src/payout.js": "export const hostAmount = (total, pct) => Math.floor(total * (100 - pct) / 100);\n",
+    "config/house.json": "{\n  \"commissionPct\": 14\n}\n"
+  },
+  "hunks": [
+    { "id": "h-1", "file": "src/payout.js", "message": "fix rounding", "diff": "-export const hostAmount = (total, pct) => Math.floor(total * (100 - pct) / 100);\n+export const hostAmount = (total, pct) => Math.round(total * (100 - pct) / 100);" },
+    { "id": "h-2", "file": "config/house.json", "message": "update commission", "diff": "-  \"commissionPct\": 14\n+  \"commissionPct\": 15" },
+    { "id": "h-3", "file": "src/payout.js", "message": "clearer names", "diff": "-export const hostAmount = (total, pct) => Math.floor(total * (100 - pct) / 100);\n+export const hostAmount = (sum, rate) => Math.floor(sum * (100 - rate) / 100);" },
+    { "id": "h-4", "file": "src/payout.js", "message": "skip empty stays", "diff": "+if (!total) return 0;" }
+  ]
+}
